@@ -3,14 +3,26 @@ function About() {
     <div>
       <h1 className="text-6xl mb-4">GitHub Finder</h1>
       <p className="mb-4 text-2xl font-light">
-        A React app to search GitHub profiles and see profile details, including user repositories. This project is part of the 
-        <a href="https://www.udemy.com/course/modern-react-front-t-back">
+        A React app to search GitHub profiles and see profile details, including user repositories. Styled using 
+        <a href="https://tailwindcss.com/" className="hover:text-info">
+          {' '}
+          TailwindCSS
+          {' '}
+        </a>
+         and 
+         <a href="https://daisyui.com/" className="hover:text-info">
+          {' '}
+          DaisyUI
+          {' '}
+         </a>
+         , this project is part of the 
+        <a href="https://www.traversymedia.com/Modern-React-Front-To-Back-Course" className="hover:text-secondary" >
           {' '}
           React Front to Back
         </a>{' '}
-        Udemy course by
+        course by
         <strong>
-          <a href="https://traversymedia.com"> Brad Traversy</a>
+          <a href="https://traversymedia.com" className="hover:text-secondary hover:font-semibold" > Brad Traversy</a>
         </strong>
         .
       </p>
