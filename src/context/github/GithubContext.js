@@ -11,6 +11,7 @@ export const GithubProvider = ({ children }) => {
         users: [],
         user: {},
         loading: false,
+        repos: [],
     }
 
     const [state, dispatch] = useReducer(githubReducer, initialState)
@@ -18,7 +19,6 @@ export const GithubProvider = ({ children }) => {
     // Get search results
     const searchUsers = async (text) => {
         setLoading()
-
         const params = new URLSearchParams({
             q: text
         })
@@ -27,9 +27,7 @@ export const GithubProvider = ({ children }) => {
             Authorization: `token: ${GITHUB_TOKEN}`
           }
         })
-    
         const { items } = await response.json()
-    
         dispatch({
             type: 'GET_USERS',
             payload: items,
@@ -39,18 +37,15 @@ export const GithubProvider = ({ children }) => {
     // Get a single user 
     const getUser = async (login) => {
         setLoading()
-
         const response = await fetch(`${GITHUB_URL}/users/${login}`, {
           headers: {
             Authorization: `token: ${GITHUB_TOKEN}`
           }
         })
-
         if (response.status === 404) {
             window.location = '/notfound'
         } else {
             const data = await response.json()
-    
             dispatch({
                 type: 'GET_USER',
                 payload: data,
@@ -58,6 +53,26 @@ export const GithubProvider = ({ children }) => {
         }
 
     }
+
+    // Get user repos
+    const getUserRepos = async (login) => {
+        setLoading()
+        const params = new URLSearchParams({
+            sort: "creates",
+            per_page: 10
+        })
+        const response = await fetch(`${GITHUB_URL}/users/${login}/repos?${params}`, {
+          headers: {
+            Authorization: `token: ${GITHUB_TOKEN}`
+          }
+        })
+        const data = await response.json()
+        dispatch({
+            type: 'GET_REPOS',
+            payload: data,
+        })
+    }
+
 
     const setLoading = () => {
         dispatch({
@@ -76,9 +91,11 @@ export const GithubProvider = ({ children }) => {
         users: state.users,
         user: state.user,
         loading: state.loading,
+        repos: state.repos,
         searchUsers,
         clearUsers,
         getUser,
+        getUserRepos,
     }}>
         {children}
     </GithubContext.Provider>
