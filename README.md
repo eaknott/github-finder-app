@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# GitHub Finder App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple app leveraging the GitHub API to search GitHub users and display profile information and basic metrics.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [Built with](#built-with)
+- [Usage](#usage)
+  - [Home page](#home-page)
+  - [About page](#about-page)
+  - [Searching users](#searching-users)
+  - [Clearing search results](#clearing-search-results)
+  - [Viewing profiles](#viewing-profiles)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This app allows users to search GitHub for users by name or by GitHub username. Users may view GitHub profiles with basic metrics, including number of followers, number of public gists, number of public repositories, photo, location, website, and whether they are hireable. The page also displays that profile's latest public repositories with certain metrics such as number of forks and number of stars, and there is a button to take the user to that profile's GitHub as well.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Built with
 
-### `npm test`
+- React.js
+- GitHub API
+- Tailwind CSS
+- DaisyUI
+- Deployed to Vercel
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+#### Home page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The home page of this app has a simple interface. A navbar at the top right can take the user to an About page or to the Home page. Clicking the "GitHub Finder" in the top left also takes the user to the home page. There is a search bar for typing any input to search GitHub users.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="./src/png/initialView.png" width="250">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### About page
 
-### `npm run eject`
+The About page has a simple description of the app, listing some of the main technologies used, with acknowledgments and links to the appropriate authors and courses.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img src="./src/png/aboutPage.png" width="250">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Searching users
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Searching is case insensitive, and the search results display all users that match the input.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img src="./src/png/searchResults.png" width="250">
 
-## Learn More
+Searches can be done by name or by username. Search results displayed on the home page are composed the profile photo, profile username, and a "Visit Profile" button to take the user to the profile.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="./src/png/searchByName.png" width="250">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Clearing search results
 
-### Code Splitting
+Users may clear the search results by clicking the "Clear" button to the right of the search "Go" button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="./src/png/clearSearchButton.png" width="250">
 
-### Analyzing the Bundle Size
+#### Viewing profiles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Profiles display data from the GitHub profile, including badges for "User" and whether they are "Hireable". Other information displayed includes bio, location, website, number of followers and following, and number of public gists and repositories.
 
-### Making a Progressive Web App
+<img src="./src/png/profileView.png" width="250">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Scrolling down below the profile metrics, users can view the profile's latest repos and metrics on each of those, including repo description, number of stars and number of forks.
 
-### Advanced Configuration
+<img src="./src/png/latestRepos.png" width="250">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgments
 
-### Deployment
+Author: [Emily Knott](www.emilyknott.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was built as part of [Traversy Media](https://github.com/bradtraversy)'s comprehensive React course: [React Front to Back Course](https://www.traversymedia.com/Modern-React-Front-To-Back-Course)
